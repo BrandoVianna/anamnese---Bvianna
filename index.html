@@ -795,10 +795,62 @@
       </div>
     </div>
 
-    <!-- BLOCO 4 — CAMPO ABERTO -->
+    <!-- BLOCO 4 — TECNOLOGIA & IA -->
     <div class="block">
       <div class="block-header">
         <span class="block-num">04</span>
+        <div class="block-info">
+          <div class="block-camada">Camada 4 — Tecnologia & Inteligência</div>
+          <div class="block-title">Sistemas e Ferramentas</div>
+          <div class="block-desc">Entender o que você usa hoje revela o que você ainda pode ganhar.</div>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Você utiliza algum sistema (ERP/software) para gerenciar sua clínica?</div>
+        <div class="options" data-name="sistema_erp" data-max="1">
+          <span class="opt" data-value="Não uso nenhum sistema">Não uso nenhum sistema</span>
+          <span class="opt" data-value="Planilha Excel/Google">Planilha Excel / Google Sheets</span>
+          <span class="opt" data-value="Nuvem Shop">Nuvem Shop</span>
+          <span class="opt" data-value="iClinic">iClinic</span>
+          <span class="opt" data-value="Simples Dental">Simples Dental</span>
+          <span class="opt" data-value="Doctoralia">Doctoralia</span>
+          <span class="opt" data-value="Outro sistema">Outro sistema</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Se usa outro sistema, qual? <span>(opcional)</span></div>
+        <input type="text" class="open-field" name="sistema_outro" placeholder="Ex: MedPlus, ClinicWeb, sistema próprio...">
+      </div>
+
+      <div class="q">
+        <div class="q-label">Você já utilizou Inteligência Artificial na sua clínica? <span>(até 2)</span></div>
+        <div class="options" data-name="uso_ia" data-max="2">
+          <span class="opt" data-value="Nunca usei IA">Nunca usei</span>
+          <span class="opt" data-value="IA para conteúdo/redes sociais">Para criar conteúdo / redes sociais</span>
+          <span class="opt" data-value="IA para atendimento/chatbot">Para atendimento ou chatbot</span>
+          <span class="opt" data-value="IA para gestão financeira">Para gestão financeira</span>
+          <span class="opt" data-value="IA para captação de pacientes">Para captação de pacientes</span>
+          <span class="opt" data-value="IA para análise de resultados">Para análise de resultados</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Como você avalia seu nível de familiaridade com tecnologia e IA?</div>
+        <div class="options" data-name="nivel_tecnologia" data-max="1">
+          <span class="opt" data-value="Baixo — evito ao máximo">Baixo — evito ao máximo</span>
+          <span class="opt" data-value="Médio — uso o básico">Médio — uso o básico</span>
+          <span class="opt" data-value="Bom — me adapto bem">Bom — me adapto bem</span>
+          <span class="opt" data-value="Alto — sou early adopter">Alto — sou early adopter</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOCO 5 — CAMPO ABERTO -->
+    <div class="block">
+      <div class="block-header">
+        <span class="block-num">05</span>
         <div class="block-info">
           <div class="block-title">O que você ainda não disse</div>
           <div class="block-desc">As perguntas mais valiosas desta anamnese.</div>
@@ -903,6 +955,9 @@ ${line('Local de atendimento', d.local_atendimento)}${line('Pacientes/mês', d.p
 ${line('Regime fiscal', d.regime_fiscal)}${line('Faturamento atual', d.faturamento_atual)}${line('Maior faturamento', d.maior_faturamento)}${line('Finanças misturadas', d.financas_misturadas)}${line('Fluxo de caixa', d.fluxo_caixa)}${line('Consciência de margem', d.consciencia_margem)}
 🧪 *INSUMOS*
 ${line('Ácido hialurônico/ml', d.preco_ah)}${line('Toxina 50UI', d.preco_toxina)}${line('Bioestimulador', d.preco_bioest)}${line('Marcas/distribuidoras', d.marcas)}${line('Canal de compra', d.canal_compra)}${line('Poder de negociação', d.poder_negociacao)}
+━━━━━━━━━━━━━━━━━━━━━
+🤖 *TECNOLOGIA & IA*
+${line('Sistema/ERP', d.sistema_erp)}${line('Outro sistema', d.sistema_outro)}${line('Uso de IA', d.uso_ia)}${line('Nível tecnologia', d.nivel_tecnologia)}
 ━━━━━━━━━━━━━━━━━━━━━
 💬 *CAMPOS ABERTOS*
 ${line('O que ninguém enxergou', d.nao_dito)}${line('Prioridade 90 dias', d.prioridade_90d)}
