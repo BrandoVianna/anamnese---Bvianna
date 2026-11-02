@@ -522,7 +522,9 @@
           <span class="opt" data-value="Medicina Estética">Medicina Estética</span>
           <span class="opt" data-value="Dermatologia">Dermatologia</span>
           <span class="opt" data-value="Nutrologia">Nutrologia</span>
-          <span class="opt" data-value="Odontologia Geral">Odontologia Geral</span>
+          <span class="opt" data-value="Odontologia Geral (clínico geral)">Odontologia Geral (clínico geral)</span>
+          <span class="opt" data-value="Odontologia Estética (lentes e facetas)">Odontologia Estética (lentes e facetas)</span>
+          <span class="opt" data-value="Medicina Integrativa (infusões e protocolos)">Medicina Integrativa (infusões e protocolos)</span>
           <span class="opt" data-value="Outra">Outra</span>
         </div>
       </div>
@@ -567,7 +569,6 @@
           <span class="opt" data-value="Não sei de onde virão os próximos pacientes">Agenda imprevisível</span>
           <span class="opt" data-value="Sem controle financeiro">Sem controle financeiro</span>
           <span class="opt" data-value="Precificação frágil">Precificação frágil</span>
-          <span class="opt" data-value="Agenda instável">Agenda instável</span>
           <span class="opt" data-value="Equipe sem alinhamento">Equipe sem alinhamento</span>
           <span class="opt" data-value="Dependência de tráfego pago">Dependência de tráfego pago</span>
         </div>
@@ -686,7 +687,7 @@
         <div class="block-info">
           <div class="block-camada">Camada 3 — Finanças, Compras & Margem</div>
           <div class="block-title">Inteligência Financeira</div>
-          <div class="block-desc">Essa camada define onde está o seu lucro real — e onde ele está sendo silenciosamente perdido.</div>
+          <div class="block-desc">Essa camada define onde está o seu lucro real — e onde ele está sendo silenciosamente perdido. Valores aproximados por mês já bastam.</div>
         </div>
       </div>
 
@@ -696,6 +697,16 @@
           <span class="opt" data-value="CPF">Pessoa Física (CPF)</span>
           <span class="opt" data-value="CNPJ">Pessoa Jurídica (CNPJ)</span>
           <span class="opt" data-value="CPF e CNPJ">Misto (CPF e CNPJ)</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Se tem CNPJ, qual é o regime tributário?</div>
+        <div class="options" data-name="regime_tributario" data-max="1">
+          <span class="opt" data-value="Simples Nacional">Simples Nacional</span>
+          <span class="opt" data-value="Lucro Presumido">Lucro Presumido</span>
+          <span class="opt" data-value="Ainda não tenho CNPJ">Ainda não tenho CNPJ</span>
+          <span class="opt" data-value="Não sei">Não sei</span>
         </div>
       </div>
 
@@ -719,6 +730,30 @@
           <span class="opt" data-value="R$ 100k – R$ 200k">R$ 100k – R$ 200k</span>
           <span class="opt" data-value="Acima de R$ 200k">Acima de R$ 200k</span>
         </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Como o faturamento se comporta de um mês para o outro?</div>
+        <div class="options" data-name="oscilacao_faturamento" data-max="1">
+          <span class="opt" data-value="Estável">Estável</span>
+          <span class="opt" data-value="Oscila um pouco (até 20%)">Oscila um pouco (até 20%)</span>
+          <span class="opt" data-value="Oscila muito">Oscila muito</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Como a maior parte dos pacientes paga?</div>
+        <div class="options" data-name="forma_recebimento" data-max="1">
+          <span class="opt" data-value="Cartão parcelado">Cartão parcelado</span>
+          <span class="opt" data-value="Cartão à vista ou débito">Cartão à vista ou débito</span>
+          <span class="opt" data-value="Pix ou dinheiro">Pix ou dinheiro</span>
+          <span class="opt" data-value="Bem dividido entre as formas">Bem dividido entre as formas</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Quais são os 3 procedimentos que mais faturam, e o preço médio de cada?</div>
+        <textarea class="open-field" name="procedimentos_top" rows="3" placeholder="Ex: Toxina full face R$ 1.500 · Preenchimento labial R$ 1.800 · Bioestimulador R$ 2.500"></textarea>
       </div>
 
       <div class="q">
@@ -749,6 +784,106 @@
       </div>
 
       <hr class="divider">
+      <div class="q"><div class="q-label" style="font-size:1.05em">Custos mensais</div><div class="q-hint">Escolha a faixa mais próxima da média dos últimos meses.</div></div>
+
+      <div class="q">
+        <div class="q-label">Gasto com insumos, materiais e laboratório por mês:</div>
+        <div class="options" data-name="custo_insumos" data-max="1">
+          <span class="opt" data-value="Até R$ 5k">Até R$ 5k</span>
+          <span class="opt" data-value="R$ 5k – R$ 10k">R$ 5k – R$ 10k</span>
+          <span class="opt" data-value="R$ 10k – R$ 20k">R$ 10k – R$ 20k</span>
+          <span class="opt" data-value="R$ 20k – R$ 40k">R$ 20k – R$ 40k</span>
+          <span class="opt" data-value="Acima de R$ 40k">Acima de R$ 40k</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Aluguel e condomínio por mês:</div>
+        <div class="options" data-name="custo_aluguel" data-max="1">
+          <span class="opt" data-value="Não pago aluguel">Não pago aluguel</span>
+          <span class="opt" data-value="Até R$ 3k">Até R$ 3k</span>
+          <span class="opt" data-value="R$ 3k – R$ 6k">R$ 3k – R$ 6k</span>
+          <span class="opt" data-value="R$ 6k – R$ 10k">R$ 6k – R$ 10k</span>
+          <span class="opt" data-value="Acima de R$ 10k">Acima de R$ 10k</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Equipe (salários, autônomos e encargos) por mês:</div>
+        <div class="options" data-name="custo_equipe" data-max="1">
+          <span class="opt" data-value="Não tenho equipe">Não tenho equipe</span>
+          <span class="opt" data-value="Até R$ 5k">Até R$ 5k</span>
+          <span class="opt" data-value="R$ 5k – R$ 10k">R$ 5k – R$ 10k</span>
+          <span class="opt" data-value="R$ 10k – R$ 20k">R$ 10k – R$ 20k</span>
+          <span class="opt" data-value="Acima de R$ 20k">Acima de R$ 20k</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Marketing e tráfego pago por mês:</div>
+        <div class="options" data-name="custo_marketing" data-max="1">
+          <span class="opt" data-value="Não invisto">Não invisto</span>
+          <span class="opt" data-value="Até R$ 2k">Até R$ 2k</span>
+          <span class="opt" data-value="R$ 2k – R$ 5k">R$ 2k – R$ 5k</span>
+          <span class="opt" data-value="R$ 5k – R$ 10k">R$ 5k – R$ 10k</span>
+          <span class="opt" data-value="Acima de R$ 10k">Acima de R$ 10k</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Outros custos fixos (contador, sistemas, energia, internet, taxas):</div>
+        <div class="options" data-name="custo_outros" data-max="1">
+          <span class="opt" data-value="Até R$ 2k">Até R$ 2k</span>
+          <span class="opt" data-value="R$ 2k – R$ 4k">R$ 2k – R$ 4k</span>
+          <span class="opt" data-value="R$ 4k – R$ 8k">R$ 4k – R$ 8k</span>
+          <span class="opt" data-value="Acima de R$ 8k">Acima de R$ 8k</span>
+        </div>
+      </div>
+
+      <hr class="divider">
+      <div class="q"><div class="q-label" style="font-size:1.05em">Retiradas e caixa</div><div class="q-hint">É aqui que costuma estar a maior alavanca de caixa da clínica.</div></div>
+
+      <div class="q">
+        <div class="q-label">Quanto você retira da clínica por mês para você?</div>
+        <div class="options" data-name="retirada_mensal" data-max="1">
+          <span class="opt" data-value="Até R$ 5k">Até R$ 5k</span>
+          <span class="opt" data-value="R$ 5k – R$ 10k">R$ 5k – R$ 10k</span>
+          <span class="opt" data-value="R$ 10k – R$ 20k">R$ 10k – R$ 20k</span>
+          <span class="opt" data-value="R$ 20k – R$ 40k">R$ 20k – R$ 40k</span>
+          <span class="opt" data-value="Acima de R$ 40k">Acima de R$ 40k</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Como você faz essas retiradas?</div>
+        <div class="options" data-name="retirada_tipo" data-max="1">
+          <span class="opt" data-value="Valor fixo, em data fixa">Valor fixo, em data fixa</span>
+          <span class="opt" data-value="Retiro conforme sobra">Retiro conforme sobra</span>
+          <span class="opt" data-value="Retiro quando preciso">Retiro quando preciso</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Você tem reserva de caixa?</div>
+        <div class="options" data-name="reserva_caixa" data-max="1">
+          <span class="opt" data-value="Não tenho">Não tenho</span>
+          <span class="opt" data-value="Menos de 1 mês de custos">Menos de 1 mês de custos</span>
+          <span class="opt" data-value="De 1 a 3 meses">De 1 a 3 meses</span>
+          <span class="opt" data-value="Mais de 3 meses">Mais de 3 meses</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Nos últimos 6 meses, você usou algum destes? <span>(até 3)</span></div>
+        <div class="options" data-name="credito_6m" data-max="3">
+          <span class="opt" data-value="Não usei nenhum">Não usei nenhum</span>
+          <span class="opt" data-value="Antecipação de recebíveis">Antecipação de recebíveis</span>
+          <span class="opt" data-value="Empréstimo">Empréstimo</span>
+          <span class="opt" data-value="Cheque especial ou rotativo do cartão">Cheque especial ou rotativo do cartão</span>
+        </div>
+      </div>
+
+      <hr class="divider">
 
       <div class="q">
         <div class="q-label">Quanto você paga hoje em média pelos seus principais insumos?</div>
@@ -767,6 +902,12 @@
             <input class="insumo-input" name="preco_bioest" type="text" placeholder="Ex: R$ 750">
           </div>
         </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Outros insumos ou serviços que pesam no seu custo <span>(descreva e informe quanto paga)</span></div>
+        <div class="q-hint">Para quem trabalha com odontologia, lentes e facetas, infusões, protocolos ou outros procedimentos.</div>
+        <textarea class="open-field" name="outros_insumos" rows="3" placeholder="Ex: resina composta R$ 90 a seringa · laboratório de lente de porcelana R$ 650 por elemento · kit de infusão R$ 180 por sessão"></textarea>
       </div>
 
       <div class="q">
@@ -811,7 +952,7 @@
         <div class="options" data-name="sistema_erp" data-max="1">
           <span class="opt" data-value="Não uso nenhum sistema">Não uso nenhum sistema</span>
           <span class="opt" data-value="Planilha Excel/Google">Planilha Excel / Google Sheets</span>
-          <span class="opt" data-value="Nuvem Shop">Nuvem Shop</span>
+          <span class="opt" data-value="Clinicorp">Clinicorp</span>
           <span class="opt" data-value="iClinic">iClinic</span>
           <span class="opt" data-value="Simples Dental">Simples Dental</span>
           <span class="opt" data-value="Doctoralia">Doctoralia</span>
@@ -824,17 +965,6 @@
         <input type="text" class="open-field" name="sistema_outro" placeholder="Ex: MedPlus, ClinicWeb, sistema próprio...">
       </div>
 
-      <div class="q">
-        <div class="q-label">Você já utilizou Inteligência Artificial na sua clínica? <span>(até 2)</span></div>
-        <div class="options" data-name="uso_ia" data-max="2">
-          <span class="opt" data-value="Nunca usei IA">Nunca usei</span>
-          <span class="opt" data-value="IA para conteúdo/redes sociais">Para criar conteúdo / redes sociais</span>
-          <span class="opt" data-value="IA para atendimento/chatbot">Para atendimento ou chatbot</span>
-          <span class="opt" data-value="IA para gestão financeira">Para gestão financeira</span>
-          <span class="opt" data-value="IA para captação de pacientes">Para captação de pacientes</span>
-          <span class="opt" data-value="IA para análise de resultados">Para análise de resultados</span>
-        </div>
-      </div>
 
       <div class="q">
         <div class="q-label">Como você avalia seu nível de familiaridade com tecnologia e IA?</div>
@@ -899,6 +1029,10 @@
   const WEBHOOK_URL = 'https://bviannaconsulting.app.n8n.cloud/webhook/7bc36365-220b-4a31-99bc-0ac33019073b';
   // Production URL — não alterar
 
+  // Pré-preenchimento (vindo da página da campanha: ?nome=...&whatsapp=...)
+  (function(){ const q = new URLSearchParams(location.search);
+    ['nome','whatsapp'].forEach(k => { const v = q.get(k); const el = document.querySelector('[name="'+k+'"]'); if (v && el && !el.value) el.value = v; }); })();
+
   // Progress bar
   window.addEventListener('scroll', () => {
     const el = document.getElementById('progressBar');
@@ -952,12 +1086,16 @@ ${line('Momento atual', d.momento_atual)}${line('Maior frustração', d.frustrac
 ${line('Local de atendimento', d.local_atendimento)}${line('Pacientes/mês', d.pacientes_mes)}${line('Responsável comercial', d.responsavel_comercial)}${line('Fonte de pacientes', d.fonte_pacientes)}${line('Taxa de conversão', d.taxa_conversao)}${line('Tráfego pago', d.trafego_pago)}${line('Equipe', d.equipe)}
 ━━━━━━━━━━━━━━━━━━━━━
 💰 *FINANÇAS & COMPRAS*
-${line('Regime fiscal', d.regime_fiscal)}${line('Faturamento atual', d.faturamento_atual)}${line('Maior faturamento', d.maior_faturamento)}${line('Finanças misturadas', d.financas_misturadas)}${line('Fluxo de caixa', d.fluxo_caixa)}${line('Consciência de margem', d.consciencia_margem)}
+${line('Atende como', d.regime_fiscal)}${line('Regime tributário', d.regime_tributario)}${line('Faturamento atual', d.faturamento_atual)}${line('Maior faturamento', d.maior_faturamento)}${line('Oscilação', d.oscilacao_faturamento)}${line('Recebimento', d.forma_recebimento)}${line('Top procedimentos', d.procedimentos_top)}${line('Finanças misturadas', d.financas_misturadas)}${line('Fluxo de caixa', d.fluxo_caixa)}${line('Consciência de margem', d.consciencia_margem)}
+📉 *CUSTOS MENSAIS*
+${line('Insumos', d.custo_insumos)}${line('Aluguel', d.custo_aluguel)}${line('Equipe', d.custo_equipe)}${line('Marketing', d.custo_marketing)}${line('Outros fixos', d.custo_outros)}
+🏦 *RETIRADAS E CAIXA*
+${line('Retirada mensal', d.retirada_mensal)}${line('Tipo de retirada', d.retirada_tipo)}${line('Reserva', d.reserva_caixa)}${line('Crédito 6 meses', d.credito_6m)}
 🧪 *INSUMOS*
-${line('Ácido hialurônico/ml', d.preco_ah)}${line('Toxina 50UI', d.preco_toxina)}${line('Bioestimulador', d.preco_bioest)}${line('Marcas/distribuidoras', d.marcas)}${line('Canal de compra', d.canal_compra)}${line('Poder de negociação', d.poder_negociacao)}
+${line('Ácido hialurônico/ml', d.preco_ah)}${line('Toxina 50UI', d.preco_toxina)}${line('Bioestimulador', d.preco_bioest)}${line('Outros insumos', d.outros_insumos)}${line('Marcas/distribuidoras', d.marcas)}${line('Canal de compra', d.canal_compra)}${line('Poder de negociação', d.poder_negociacao)}
 ━━━━━━━━━━━━━━━━━━━━━
 🤖 *TECNOLOGIA & IA*
-${line('Sistema/ERP', d.sistema_erp)}${line('Outro sistema', d.sistema_outro)}${line('Uso de IA', d.uso_ia)}${line('Nível tecnologia', d.nivel_tecnologia)}
+${line('Sistema/ERP', d.sistema_erp)}${line('Outro sistema', d.sistema_outro)}${line('Nível tecnologia', d.nivel_tecnologia)}
 ━━━━━━━━━━━━━━━━━━━━━
 💬 *CAMPOS ABERTOS*
 ${line('O que ninguém enxergou', d.nao_dito)}${line('Prioridade 90 dias', d.prioridade_90d)}
