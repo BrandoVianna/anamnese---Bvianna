@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR" style="background:#0E0E0E;color-scheme:dark;">
+<html lang="pt-BR" style="background:#F7F3EC;color-scheme:light;">
 <head>
 <meta charset="UTF-8">
-<meta name="color-scheme" content="dark">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F7F3EC">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anamnese Estratégica Premium — BVianna Consulting</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -468,8 +469,41 @@
     .insumo-input { text-align: left; }
   }
 </style>
+<style>
+/* ===== Tema claro + leitura confortável (BVianna, nov/2026) ===== */
+:root{--gold:#9C7A3C;--gold-light:#8A6A2F;--dark:#F7F3EC;--dark-2:#FFFFFF;--dark-3:#FFFFFF;--dark-4:#FBF8F2;--text:#1B2433;--text-muted:#4F4A43;--text-dim:#7A746B;--border:rgba(156,122,60,.35);--border-hover:rgba(156,122,60,.75)}
+html,html body{background:#F7F3EC !important;background-color:#F7F3EC !important}
+body{color:#1B2433;font-weight:400;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(184,151,90,.10) 0%,transparent 70%) !important}
+.header-eyebrow{font-size:12px;letter-spacing:.18em}
+.header-title{font-size:clamp(38px,7vw,56px)}
+.header-sub{font-size:17px;line-height:1.7;max-width:540px}
+.header-badge{font-size:13px}
+.block-num{font-size:13px}
+.block-camada{font-size:12px}
+.block-title{font-size:27px;font-weight:500}
+.block-desc{font-size:16px;line-height:1.6}
+.q-label{font-size:18px;font-weight:500;line-height:1.5}
+.q-label span{font-weight:400}
+.q-hint{font-size:14px}
+.opt{font-size:15px;font-weight:500;color:#2A3242;background:#FFFFFF;padding:11px 16px;border-color:rgba(156,122,60,.35)}
+.opt:hover{background:#F3ECDF;color:#1B2433}
+.opt.sel{background:#1B2433;color:#F7F3EC;border-color:#1B2433}
+.open-field,.insumo-input{font-size:16px;line-height:1.5;padding:13px 14px;border-width:1px}
+.open-field:focus,.insumo-input:focus{box-shadow:0 0 0 3px rgba(156,122,60,.15)}
+.insumo-label{font-size:15px}
+.field-wrap label{font-size:13px;letter-spacing:.06em}
+.submit-section p{font-size:22px}
+.submit-btn{font-size:15px;font-weight:600;color:#F7F3EC;background:#1B2433;border-color:#1B2433;padding:16px 36px}
+.submit-btn:hover{background:#2A3650}
+.submit-note{font-size:13px}
+.success-title{font-size:40px}
+.success-sub{font-size:17px}
+.loading-overlay{background:rgba(247,243,236,.9)}
+.loading-text{font-size:15px}
+</style>
 </head>
-<body style="background:#0E0E0E !important;color-scheme:dark;">
+<body style="background:#F7F3EC !important;color-scheme:light;">
 
 <div class="progress-bar" id="progressBar"></div>
 
