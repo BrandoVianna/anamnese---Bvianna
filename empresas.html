@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="pt-BR" style="background:#F7F3EC;color-scheme:light;">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F7F3EC">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anamnese Estratégica Premium — BVianna Consulting</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #B8975A;
+    --gold-light: #D4B483;
+    --dark: #0E0E0E;
+    --dark-2: #1A1A1A;
+    --dark-3: #242424;
+    --dark-4: #2E2E2E;
+    --text: #E8E4DC;
+    --text-muted: #8A8278;
+    --text-dim: #4A4642;
+    --border: rgba(184,151,90,0.18);
+    --border-hover: rgba(184,151,90,0.45);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: #0E0E0E !important;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Background texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(184,151,90,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 90% 80%, rgba(184,151,90,0.04) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    padding: 64px 0 56px;
+    text-align: center;
+    border-bottom: 0.5px solid var(--border);
+    margin-bottom: 56px;
+  }
+
+  .header-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .header-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 6vw, 52px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .header-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .header-sub {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 460px;
+    margin: 20px auto 0;
+  }
+
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 28px;
+    padding: 6px 16px;
+    border: 0.5px solid var(--border);
+    border-radius: 20px;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+
+  .header-badge::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.7;
+  }
+
+  /* ── PROGRESS ── */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    transition: width 0.4s ease;
+    z-index: 100;
+  }
+
+  /* ── BLOCKS ── */
+  .block {
+    margin-bottom: 48px;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .block:nth-child(1) { animation-delay: 0.1s; }
+  .block:nth-child(2) { animation-delay: 0.2s; }
+  .block:nth-child(3) { animation-delay: 0.3s; }
+  .block:nth-child(4) { animation-delay: 0.4s; }
+
+  .block-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .block-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    padding-top: 4px;
+    white-space: nowrap;
+  }
+
+  .block-info {}
+
+  .block-camada {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+  }
+
+  .block-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.2;
+  }
+
+  .block-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    line-height: 1.6;
+  }
+
+  /* ── QUESTIONS ── */
+  .q {
+    margin-bottom: 32px;
+  }
+
+  .q:last-child { margin-bottom: 0; }
+
+  .q-label {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  .q-label span {
+    color: var(--text-muted);
+    font-weight: 300;
+  }
+
+  .q-hint {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+
+  /* Options */
+  .options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .opt {
+    font-size: 12px;
+    font-weight: 400;
+    padding: 8px 16px;
+    border: 0.5px solid var(--border);
+    border-radius: 2px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: transparent;
+    user-select: none;
+    letter-spacing: 0.02em;
+  }
+
+  .opt:hover {
+    border-color: var(--border-hover);
+    color: var(--text);
+    background: rgba(184,151,90,0.05);
+  }
+
+  .opt.sel {
+    border-color: var(--gold);
+    color: var(--gold-light);
+    background: rgba(184,151,90,0.08);
+  }
+
+  /* Open fields */
+  .open-field {
+    width: 100%;
+    background: var(--dark-3);
+    border: 0.5px solid var(--border);
+    border-radius: 2px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    padding: 12px 14px;
+    resize: none;
+    line-height: 1.6;
+    transition: border-color 0.2s;
+  }
+
+  .open-field::placeholder {
+    color: var(--text-dim);
+    font-style: italic;
+  }
+
+  .open-field:focus {
+    outline: none;
+    border-color: var(--border-hover);
+    background: var(--dark-4);
+  }
+
+  /* Insumos */
+  .insumos-grid {
+    display: grid;
+    gap: 10px;
+  }
+
+  .insumo-row {
+    display: grid;
+    grid-template-columns: 1fr 140px;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .insumo-label {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .insumo-input {
+    background: var(--dark-3);
+    border: 0.5px solid var(--border);
+    border-radius: 2px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    padding: 8px 12px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+
+  .insumo-input::placeholder { color: var(--text-dim); }
+  .insumo-input:focus { outline: none; border-color: var(--border-hover); }
+
+  /* Divider */
+  .divider {
+    border: none;
+    border-top: 0.5px solid var(--border);
+    margin: 28px 0;
+  }
+
+  /* Name/contact fields */
+  .field-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .field-wrap label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+  }
+
+  /* ── SUBMIT ── */
+  .submit-section {
+    text-align: center;
+    padding: 48px 0 0;
+    border-top: 0.5px solid var(--border);
+  }
+
+  .submit-section p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    line-height: 1.5;
+  }
+
+  .submit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 40px;
+    border: 0.5px solid var(--gold);
+    border-radius: 2px;
+    background: transparent;
+    color: var(--gold-light);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .submit-btn:hover {
+    background: rgba(184,151,90,0.1);
+    border-color: var(--gold-light);
+  }
+
+  .submit-btn:active {
+    transform: scale(0.98);
+  }
+
+  .submit-btn svg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.2s;
+  }
+
+  .submit-btn:hover svg {
+    transform: translateX(3px);
+  }
+
+  .submit-note {
+    margin-top: 20px;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── SUCCESS STATE ── */
+  .success-screen {
+    display: none;
+    text-align: center;
+    padding: 80px 24px;
+  }
+
+  .success-screen.visible { display: block; }
+
+  .success-icon {
+    width: 56px;
+    height: 56px;
+    border: 0.5px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 28px;
+  }
+
+  .success-icon svg { width: 22px; height: 22px; stroke: var(--gold); }
+
+  .success-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+
+  .success-sub {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  /* ── LOADING ── */
+  .loading-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(14,14,14,0.85);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .loading-overlay.visible { display: flex; }
+
+  .spinner {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--border);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .loading-text {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 560px) {
+    .field-group { grid-template-columns: 1fr; }
+    .insumo-row { grid-template-columns: 1fr; }
+    .insumo-input { text-align: left; }
+  }
+</style>
+<style>
+/* ===== Tema claro + leitura confortável (BVianna, nov/2026) ===== */
+:root{--gold:#9C7A3C;--gold-light:#8A6A2F;--dark:#F7F3EC;--dark-2:#FFFFFF;--dark-3:#FFFFFF;--dark-4:#FBF8F2;--text:#1B2433;--text-muted:#4F4A43;--text-dim:#7A746B;--border:rgba(156,122,60,.35);--border-hover:rgba(156,122,60,.75)}
+html,html body{background:#F7F3EC !important;background-color:#F7F3EC !important}
+body{color:#1B2433;font-weight:400;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(184,151,90,.10) 0%,transparent 70%) !important}
+.header-eyebrow{font-size:12px;letter-spacing:.18em}
+.header-title{font-size:clamp(38px,7vw,56px)}
+.header-sub{font-size:17px;line-height:1.7;max-width:540px}
+.header-badge{font-size:13px}
+.block-num{font-size:13px}
+.block-camada{font-size:12px}
+.block-title{font-size:27px;font-weight:500}
+.block-desc{font-size:16px;line-height:1.6}
+.q-label{font-size:18px;font-weight:500;line-height:1.5}
+.q-label span{font-weight:400}
+.q-hint{font-size:14px}
+.opt{font-size:15px;font-weight:500;color:#2A3242;background:#FFFFFF;padding:11px 16px;border-color:rgba(156,122,60,.35)}
+.opt:hover{background:#F3ECDF;color:#1B2433}
+.opt.sel{background:#1B2433;color:#F7F3EC;border-color:#1B2433}
+.open-field,.insumo-input{font-size:16px;line-height:1.5;padding:13px 14px;border-width:1px}
+.open-field:focus,.insumo-input:focus{box-shadow:0 0 0 3px rgba(156,122,60,.15)}
+.insumo-label{font-size:15px}
+.field-wrap label{font-size:13px;letter-spacing:.06em}
+.submit-section p{font-size:22px}
+.submit-btn{font-size:15px;font-weight:600;color:#F7F3EC;background:#1B2433;border-color:#1B2433;padding:16px 36px}
+.submit-btn:hover{background:#2A3650}
+.submit-note{font-size:13px}
+.success-title{font-size:40px}
+.success-sub{font-size:17px}
+.loading-overlay{background:rgba(247,243,236,.9)}
+.loading-text{font-size:15px}
+</style>
+</head>
+<body style="background:#F7F3EC !important;color-scheme:light;">
+
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <p class="loading-text">Enviando suas respostas...</p>
+</div>
+
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <p class="header-eyebrow">BVianna Consulting — Diagnóstico Estratégico Premium</p>
+    <h1 class="header-title">Anamnese <em>Estratégica</em></h1>
+    <p class="header-sub">O raio-x financeiro da sua empresa. Responda com total honestidade — é aqui que começa a transformação. Não leva nem 1 minuto.</p>
+    <span class="header-badge">Confidencial · Uso exclusivo da consultoria</span>
+  </header>
+
+  <!-- FORM -->
+  <form id="anamneseForm">
+
+    <div class="block">
+      <div class="block-header">
+        <span class="block-num">00</span>
+        <div class="block-info">
+          <div class="block-camada">Identificação</div>
+          <div class="block-title">Quem é você</div>
+          <div class="block-desc">Dados básicos para personalizar seu diagnóstico.</div>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="field-group">
+          <div class="field-wrap">
+            <label>Seu nome</label>
+            <input type="text" class="open-field" name="nome" placeholder="Nome e sobrenome" required>
+          </div>
+          <div class="field-wrap">
+            <label>WhatsApp</label>
+            <input type="tel" class="open-field" name="whatsapp" placeholder="(11) 99999-9999" required>
+          </div>
+          <div class="field-wrap">
+            <label>Empresa</label>
+            <input type="text" class="open-field" name="empresa" placeholder="Nome da empresa">
+          </div>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Qual é o segmento da sua empresa?</div>
+        <div class="options" data-name="segmento" data-max="1">
+          <span class="opt" data-value="Comunicação visual">Comunicação visual</span>
+          <span class="opt" data-value="Marcenaria e móveis planejados">Marcenaria e móveis planejados</span>
+          <span class="opt" data-value="Loja ou varejo">Loja ou varejo</span>
+          <span class="opt" data-value="Distribuidora ou atacado">Distribuidora ou atacado</span>
+          <span class="opt" data-value="Alimentação (restaurante, açougue, padaria, mercado)">Alimentação (restaurante, açougue, padaria, mercado)</span>
+          <span class="opt" data-value="Revenda de veículos">Revenda de veículos</span>
+          <span class="opt" data-value="Educação e escolas">Educação e escolas</span>
+          <span class="opt" data-value="Música, áudio e eventos">Música, áudio e eventos</span>
+          <span class="opt" data-value="Indústria ou fábrica">Indústria ou fábrica</span>
+          <span class="opt" data-value="Instalação, manutenção e serviços técnicos">Instalação, manutenção e serviços técnicos</span>
+          <span class="opt" data-value="Outro">Outro</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Há quanto tempo a empresa existe?</div>
+        <div class="options" data-name="tempo_atuacao" data-max="1">
+          <span class="opt" data-value="Menos de 1 ano">Menos de 1 ano</span>
+          <span class="opt" data-value="1 a 2 anos">1 a 2 anos</span>
+          <span class="opt" data-value="3 a 5 anos">3 a 5 anos</span>
+          <span class="opt" data-value="Mais de 5 anos">Mais de 5 anos</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-header">
+        <span class="block-num">01</span>
+        <div class="block-info">
+          <div class="block-camada">Receita</div>
+          <div class="block-title">Como o dinheiro entra</div>
+          <div class="block-desc">Escolha a opção mais próxima. Valores aproximados já bastam.</div>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Quantas vendas, pedidos ou serviços a empresa faz por mês?</div>
+        <div class="options" data-name="volume_mes" data-max="1">
+          <span class="opt" data-value="Até 30">Até 30</span>
+          <span class="opt" data-value="30 a 100">30 a 100</span>
+          <span class="opt" data-value="100 a 300">100 a 300</span>
+          <span class="opt" data-value="Mais de 300">Mais de 300</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Faturamento médio mensal</div>
+        <div class="options" data-name="faturamento_atual" data-max="1">
+          <span class="opt" data-value="Até R$ 15k">Até R$ 15k</span>
+          <span class="opt" data-value="R$ 15k – R$ 30k">R$ 15k – R$ 30k</span>
+          <span class="opt" data-value="R$ 30k – R$ 60k">R$ 30k – R$ 60k</span>
+          <span class="opt" data-value="R$ 60k – R$ 100k">R$ 60k – R$ 100k</span>
+          <span class="opt" data-value="R$ 100k – R$ 300k">R$ 100k – R$ 300k</span>
+          <span class="opt" data-value="Acima de R$ 300k">Acima de R$ 300k</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">De um mês para o outro, o faturamento…</div>
+        <div class="options" data-name="oscilacao_faturamento" data-max="1">
+          <span class="opt" data-value="Estável">É estável</span>
+          <span class="opt" data-value="Oscila um pouco (até 20%)">Oscila um pouco (até 20%)</span>
+          <span class="opt" data-value="Oscila muito ou é sazonal">Oscila muito ou é sazonal</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Como a maior parte dos clientes paga? <span>(até 2)</span></div>
+        <div class="options" data-name="forma_recebimento" data-max="2">
+          <span class="opt" data-value="Cartão parcelado">Cartão parcelado</span>
+          <span class="opt" data-value="Cartão à vista ou débito">Cartão à vista ou débito</span>
+          <span class="opt" data-value="Pix ou dinheiro">Pix ou dinheiro</span>
+          <span class="opt" data-value="Boleto ou prazo (venda para empresas)">Boleto ou prazo (venda para empresas)</span>
+          <span class="opt" data-value="Sinal + restante na entrega">Sinal + restante na entrega</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-header">
+        <span class="block-num">02</span>
+        <div class="block-info">
+          <div class="block-camada">Organização</div>
+          <div class="block-title">Como o dinheiro é controlado</div>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Como você organiza o dinheiro da empresa?</div>
+        <div class="options" data-name="pf_pj" data-max="1">
+          <span class="opt" data-value="Só pelo CPF">Ainda vendo pelo CPF</span>
+          <span class="opt" data-value="CNPJ, mas misturo com o pessoal">Tenho CNPJ, mas misturo com o pessoal</span>
+          <span class="opt" data-value="CNPJ, parcialmente separado">Tenho CNPJ, parcialmente separado</span>
+          <span class="opt" data-value="CNPJ, totalmente separado">Tenho CNPJ, totalmente separado</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Regime tributário</div>
+        <div class="options" data-name="regime_tributario" data-max="1">
+          <span class="opt" data-value="MEI">MEI</span>
+          <span class="opt" data-value="Simples Nacional">Simples Nacional</span>
+          <span class="opt" data-value="Lucro Presumido">Lucro Presumido</span>
+          <span class="opt" data-value="Lucro Real">Lucro Real</span>
+          <span class="opt" data-value="Não sei">Não sei</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Você sabe quanto sobra de verdade na empresa no fim do mês?</div>
+        <div class="options" data-name="clareza_lucro" data-max="1">
+          <span class="opt" data-value="Sei, por sistema ou relatório">Sei, por sistema ou relatório</span>
+          <span class="opt" data-value="Tenho uma ideia (planilha ou extrato)">Tenho uma ideia, pela planilha ou extrato</span>
+          <span class="opt" data-value="Só o contador sabe">Só o contador sabe</span>
+          <span class="opt" data-value="Não sei">Não sei</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-header">
+        <span class="block-num">03</span>
+        <div class="block-info">
+          <div class="block-camada">Custos, compras e caixa</div>
+          <div class="block-title">Para onde o dinheiro vai</div>
+          <div class="block-desc">Média dos últimos meses. É aqui que costuma estar a margem escondida.</div>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Custos fixos por mês <span>(aluguel, equipe, marketing e outros, somados)</span></div>
+        <div class="options" data-name="custos_fixos" data-max="1">
+          <span class="opt" data-value="Até R$ 5k">Até R$ 5k</span>
+          <span class="opt" data-value="R$ 5k – R$ 15k">R$ 5k – R$ 15k</span>
+          <span class="opt" data-value="R$ 15k – R$ 30k">R$ 15k – R$ 30k</span>
+          <span class="opt" data-value="R$ 30k – R$ 60k">R$ 30k – R$ 60k</span>
+          <span class="opt" data-value="Acima de R$ 60k">Acima de R$ 60k</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Compras por mês <span>(mercadorias, matéria-prima, insumos e fornecedores)</span></div>
+        <div class="options" data-name="compras_mes" data-max="1">
+          <span class="opt" data-value="Até R$ 10k">Até R$ 10k</span>
+          <span class="opt" data-value="R$ 10k – R$ 30k">R$ 10k – R$ 30k</span>
+          <span class="opt" data-value="R$ 30k – R$ 60k">R$ 30k – R$ 60k</span>
+          <span class="opt" data-value="R$ 60k – R$ 150k">R$ 60k – R$ 150k</span>
+          <span class="opt" data-value="Acima de R$ 150k">Acima de R$ 150k</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Como você compra hoje?</div>
+        <div class="options" data-name="modo_compra" data-max="1">
+          <span class="opt" data-value="Sempre dos mesmos fornecedores, sem cotar">Sempre dos mesmos fornecedores, sem cotar</span>
+          <span class="opt" data-value="Cotação de vez em quando">Faço cotação de vez em quando</span>
+          <span class="opt" data-value="Cotação sempre, mas negocio pouco">Cotação sempre, mas negocio pouco preço e prazo</span>
+          <span class="opt" data-value="Negocio preço, prazo e volume">Negocio preço, prazo e volume</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Quanto você retira por mês para você?</div>
+        <div class="options" data-name="retirada_mensal" data-max="1">
+          <span class="opt" data-value="Até R$ 5k">Até R$ 5k</span>
+          <span class="opt" data-value="R$ 5k – R$ 10k">R$ 5k – R$ 10k</span>
+          <span class="opt" data-value="R$ 10k – R$ 20k">R$ 10k – R$ 20k</span>
+          <span class="opt" data-value="R$ 20k – R$ 40k">R$ 20k – R$ 40k</span>
+          <span class="opt" data-value="Acima de R$ 40k">Acima de R$ 40k</span>
+          <span class="opt" data-value="Retiro quando preciso">Retiro quando preciso</span>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Nos últimos 6 meses, você usou algum destes? <span>(pode marcar mais de um)</span></div>
+        <div class="options" data-name="credito_6m" data-max="4">
+          <span class="opt" data-value="Não usei nenhum">Não usei nenhum</span>
+          <span class="opt" data-value="Antecipação de recebíveis">Antecipação de recebíveis</span>
+          <span class="opt" data-value="Empréstimo ou capital de giro">Empréstimo ou capital de giro</span>
+          <span class="opt" data-value="Cheque especial ou rotativo do cartão">Cheque especial ou rotativo do cartão</span>
+          <span class="opt" data-value="Atraso com fornecedores">Atraso com fornecedores</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-header">
+        <span class="block-num">04</span>
+        <div class="block-info">
+          <div class="block-camada">Direção</div>
+          <div class="block-title">O que vem primeiro</div>
+          <div class="block-desc">Essa resposta guia o seu plano de 2 meses.</div>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">O que você mais quer resolver nos próximos 90 dias? <span>(até 2)</span></div>
+        <div class="options" data-name="prioridade_90d" data-max="2">
+          <span class="opt" data-value="Saber quanto sobra de verdade">Saber quanto sobra de verdade</span>
+          <span class="opt" data-value="Comprar melhor (preço e prazo)">Comprar melhor (preço e prazo)</span>
+          <span class="opt" data-value="Separar pessoa física e jurídica">Separar pessoa física e jurídica</span>
+          <span class="opt" data-value="Sair dos juros e da antecipação">Sair dos juros e da antecipação</span>
+          <span class="opt" data-value="Precificar melhor">Precificar melhor</span>
+          <span class="opt" data-value="Controlar estoque">Controlar estoque</span>
+          <span class="opt" data-value="Ter previsibilidade de caixa">Ter previsibilidade de caixa</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="submit-section">
+      <p>"Pela primeira vez, alguém vai enxergar os números da minha empresa de um jeito que eu mesmo nunca enxerguei."</p>
+      <button type="submit" class="submit-btn">
+        Enviar e iniciar diagnóstico
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </button>
+      <p class="submit-note">Suas respostas são confidenciais e utilizadas exclusivamente para construção do seu plano personalizado.</p>
+    </div>
+
+  </form>
+
+  <!-- SUCCESS -->
+  <div class="success-screen" id="successScreen">
+    <div class="success-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 6L9 17l-5-5"/>
+      </svg>
+    </div>
+    <h2 class="success-title">Anamnese recebida.</h2>
+    <p class="success-sub">Suas respostas chegaram com sucesso. Em breve você receberá o contato da equipe BVianna Consulting para dar início ao seu diagnóstico estratégico.</p>
+  </div>
+
+</div>
+
+<script>
+  const WEBHOOK_URL = 'https://bviannaconsulting.app.n8n.cloud/webhook/7bc36365-220b-4a31-99bc-0ac33019073b';
+  // Production URL — não alterar
+
+  // Pré-preenchimento (vindo da página da campanha: ?nome=...&whatsapp=...)
+  (function(){ const q = new URLSearchParams(location.search);
+    ['nome','whatsapp'].forEach(k => { const v = q.get(k); const el = document.querySelector('[name="'+k+'"]'); if (v && el && !el.value) el.value = v; }); })();
+
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const el = document.getElementById('progressBar');
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    el.style.width = pct + '%';
+  });
+
+  // Options toggle
+  document.querySelectorAll('.options').forEach(group => {
+    const max = parseInt(group.dataset.max || '1');
+    group.querySelectorAll('.opt').forEach(opt => {
+      opt.addEventListener('click', () => {
+        const selected = group.querySelectorAll('.sel');
+        if (opt.classList.contains('sel')) {
+          opt.classList.remove('sel');
+        } else {
+          if (selected.length >= max) selected[0].classList.remove('sel');
+          opt.classList.add('sel');
+        }
+      });
+    });
+  });
+
+  // Collect options data
+  function collectOptions() {
+    const data = {};
+    document.querySelectorAll('.options').forEach(group => {
+      const name = group.dataset.name;
+      if (!name) return;
+      const vals = [...group.querySelectorAll('.sel')].map(o => o.dataset.value);
+      data[name] = vals.length === 1 ? vals[0] : vals.join(', ');
+    });
+    return data;
+  }
+
+  // Format WhatsApp message
+  function formatMessage(d) {
+    const line = (label, val) => val ? `*${label}:* ${val}\n` : '';
+    return (
+`🔔 *NOVA ANAMNESE ESTRATÉGICA — EMPRESAS · BVianna Consulting*
+━━━━━━━━━━━━━━━━━━━━━
+
+👤 *IDENTIFICAÇÃO*
+${line('Nome', d.nome)}${line('WhatsApp', d.whatsapp)}${line('Empresa', d.empresa)}${line('Segmento', d.segmento)}${line('Tempo de empresa', d.tempo_atuacao)}
+━━━━━━━━━━━━━━━━━━━━━
+💰 *RECEITA*
+${line('Vendas/pedidos por mês', d.volume_mes)}${line('Faturamento atual', d.faturamento_atual)}${line('Oscilação', d.oscilacao_faturamento)}${line('Recebimento', d.forma_recebimento)}
+━━━━━━━━━━━━━━━━━━━━━
+🗂️ *ORGANIZAÇÃO*
+${line('CPF/CNPJ e finanças', d.pf_pj)}${line('Regime tributário', d.regime_tributario)}${line('Sabe quanto sobra', d.clareza_lucro)}
+━━━━━━━━━━━━━━━━━━━━━
+📉 *CUSTOS, COMPRAS E CAIXA*
+${line('Custos fixos', d.custos_fixos)}${line('Compras/mês', d.compras_mes)}${line('Como compra', d.modo_compra)}${line('Retirada mensal', d.retirada_mensal)}${line('Crédito 6 meses', d.credito_6m)}
+━━━━━━━━━━━━━━━━━━━━━
+🎯 *PRIORIDADE 90 DIAS*
+${line('Prioridade', d.prioridade_90d)}
+━━━━━━━━━━━━━━━━━━━━━
+_Enviado via Anamnese Estratégica Empresas · BVianna Consulting_`
+    );
+  }
+
+  // Submit
+  document.getElementById('anamneseForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const loading = document.getElementById('loadingOverlay');
+    loading.classList.add('visible');
+
+    const formEl = e.target;
+    const formData = new FormData(formEl);
+    const raw = Object.fromEntries(formData.entries());
+    const opts = collectOptions();
+    const data = { ...raw, ...opts };
+    const message = formatMessage(data);
+
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ data, message })
+      });
+    } catch (err) {
+      console.error(err);
+    }
+
+    loading.classList.remove('visible');
+    formEl.style.display = 'none';
+    document.getElementById('successScreen').classList.add('visible');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>
